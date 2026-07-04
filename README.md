@@ -29,8 +29,8 @@ O jogo é um clássico de estilo *Brick Breaker* / *BBTAN*, onde o jogador deve 
 
 Confira abaixo o vídeo de demonstração do funcionamento do jogo (gameplay, colisões e progressão):
 
-<video src="Screencast_20260703_231955.webm" width="100%" controls autoplay loop muted>
-  Seu navegador não suporta a exibição de vídeos HTML5. Você pode baixar o vídeo diretamente em [Screencast_20260703_231955.webm](file:///zoomer/brick-blast-ball/Screencast_20260703_231955.webm).
+<video src="https://github.com/devbaraus/brick-blast-ball/blob/main/Screencast_20260703_231955.webm" width="100%" controls autoplay loop muted>
+  Seu navegador não suporta a exibição de vídeos HTML5. Você pode baixar o vídeo diretamente em [Screencast_20260703_231955.webm](https://github.com/devbaraus/brick-blast-ball/blob/main/Screencast_20260703_231955.webm).
 </video>
 
 *(Caso o reprodutor acima não funcione, você pode visualizar ou baixar o vídeo clicando no link a seguir: [Screencast_20260703_231955.webm](file:///zoomer/brick-blast-ball/Screencast_20260703_231955.webm))*
