@@ -25,18 +25,6 @@ O jogo é um clássico de estilo *Brick Breaker* / *BBTAN*, onde o jogador deve 
 
 ---
 
-## 🎥 Demonstração
-
-Confira abaixo o vídeo de demonstração do funcionamento do jogo (gameplay, colisões e progressão):
-
-<video src="https://github.com/devbaraus/brick-blast-ball/blob/main/Screencast_20260703_231955.webm" width="100%" controls autoplay loop muted>
-  Seu navegador não suporta a exibição de vídeos HTML5. Você pode baixar o vídeo diretamente em [Screencast_20260703_231955.webm](https://github.com/devbaraus/brick-blast-ball/blob/main/Screencast_20260703_231955.webm).
-</video>
-
-*(Caso o reprodutor acima não funcione, você pode visualizar ou baixar o vídeo clicando no link a seguir: [Screencast_20260703_231955.webm](file:///zoomer/brick-blast-ball/Screencast_20260703_231955.webm))*
-
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **Engine de Desenvolvimento:** [AppGameKit (AGK)](https://www.appgamekit.com/)
@@ -53,11 +41,17 @@ O repositório está estruturado com os seguintes componentes principais:
 - Imagens de fundo (`back0.jpg` a `back9.png`): Planos de fundo utilizados nas fases do jogo.
 - Sprites do jogo (`ball.png`, `gBall.png`, `square.png`): Texturas para as esferas normais/especiais e os blocos.
 - Áudios do jogo (`song1.ogg` a `song5.ogg`): Trilha sonora e efeitos sonoros de impacto e feedback.
-- [Screencast_20260703_231955.webm](file:///zoomer/brick-blast-ball/Screencast_20260703_231955.webm): Demonstração gravada da gameplay do jogo.
+- [screenshot.png](file:///zoomer/brick-blast-ball/screenshot.png): Captura de tela demonstrando o jogo em execução.
 
 ---
 
+## 📷 Captura de Tela (Screenshot)
 
+Confira abaixo uma captura de tela do jogo em execução:
+
+![Captura de tela do jogo Brick Blast Ball](screenshot.png)
+
+---
 
 ## 🚀 Como Executar
 
