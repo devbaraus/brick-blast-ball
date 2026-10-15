@@ -1,3 +1,77 @@
+# Versão em Python
+
+Recriação jogável de **Retro Brick Blast / Brick Blocks** em Python com Pygame,
+reutilizando as imagens e as cinco músicas desta pasta. Inclui disparo sequencial,
+reflexão nas paredes e blocos, coleta de bolas extras, rodadas progressivas,
+fim de jogo e recorde persistente.
+
+## Executar
+
+Requer Python 3.10 ou superior. No terminal, dentro desta pasta:
+
+```sh
+python -m venv .venv
+```
+
+Ative o ambiente:
+
+- Windows: `.venv\Scripts\activate`
+- Linux/macOS: `source .venv/bin/activate`
+
+```sh
+python -m pip install -r requirements.txt
+python main.py
+```
+
+Mantenha as imagens e os arquivos `.ogg` junto dos arquivos Python.
+Os recursos são encontrados pelo caminho de `main.py`, mesmo ao iniciar de outra pasta.
+Se não houver dispositivo de áudio, o jogo continua sem música.
+
+## Como jogar
+
+Mova o mouse para mirar acima da bola e clique com o botão esquerdo para lançar.
+Cada impacto reduz o número do bloco em um; ao chegar a zero, ele desaparece.
+Os círculos acrescentam bolas ao próximo disparo. O primeiro ponto de retorno
+vira a origem da próxima rodada. Quando todas as bolas retornam, os blocos descem
+e uma nova linha aparece. A partida acaba se um bloco alcançar a linha inferior.
+
+| Tecla | Ação |
+| --- | --- |
+| P | Pausar ou continuar |
+| Espaço (segurar) | Acelerar as bolas em 4× |
+| B | Recolher a salva e avançar a rodada |
+| M | Ligar/desligar música |
+| R | Reiniciar a partida |
+| Esc | Sair |
+
+A janela pode ser redimensionada. O recorde é a maior rodada alcançada e fica
+na pasta de dados do usuário (`APPDATA` no Windows, `XDG_DATA_HOME` ou
+`~/.local/share` no Linux), em `brick-blocks-python/record.json`.
+
+## Código e verificações
+
+- `engine.py`: regras, geração de linhas e física sem dependências gráficas.
+- `main.py`: interface Pygame, sprites, músicas, controles e persistência.
+- `tests/test_engine.py`: testes de colisão, rodadas, coleta e fim de jogo.
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Verificação gráfica sem abrir uma janela (Linux/macOS):
+
+```sh
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python main.py --mute --frames 5 --screenshot /tmp/brick-blocks.png
+```
+
+Esta é uma reimplementação baseada na captura de tela, nos recursos fornecidos e
+nas regras descritas abaixo. A inspeção estática do executável confirmou o título,
+os rótulos de pontuação e os nomes dos recursos. O executável Windows não foi
+executado neste ambiente Linux; velocidades, distribuição dos blocos e alternância
+de fundos/músicas são escolhas da recriação, sem equivalência exata comprovada.
+
+---
+
 # Brick Blast Ball (Réplica)
 
 Este repositório contém o projeto de uma réplica do jogo **Brick Blast Ball**, desenvolvido como atividade prática para a disciplina de **Laboratório de Programação** do 1º período do curso de **Bacharelado em Ciência da Computação** do **Instituto Federal de Goiás (IFG) - Câmpus Anápolis**.
