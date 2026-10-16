@@ -1,7 +1,8 @@
 """Regras e física do Brick Blocks, independentes da interface gráfica."""
-from dataclasses import dataclass
+
 import math
 import random
+from dataclasses import dataclass
 
 WIDTH, HEIGHT = 720, 900
 TOP, FLOOR, CELL, RADIUS = 60, 860, 80, 9
@@ -43,13 +44,13 @@ class Game:
         self.landing = None
         self.timer = 0
         self.hits = 0
-        self.state = 'aim'
+        self.state = "aim"
         self.add_row()
 
     def add_row(self):
         cells = list(range(9))
         self.rng.shuffle(cells)
-        for col in cells[:self.rng.randint(3, 6)]:
+        for col in cells[: self.rng.randint(3, 6)]:
             self.blocks.append(Block(col * CELL, TOP + CELL, self.round))
         col = cells[-1]
         self.pickups.append(Pickup(col * CELL + CELL / 2, TOP + CELL * 1.5))
@@ -58,18 +59,20 @@ class Game:
         dx, dy = x - self.origin, y - (FLOOR - RADIUS)
         if dy >= -12:
             return None
-        angle = max(math.radians(8), min(math.pi - math.radians(8), math.atan2(-dy, dx)))
+        angle = max(
+            math.radians(8), min(math.pi - math.radians(8), math.atan2(-dy, dx))
+        )
         return math.cos(angle), -math.sin(angle)
 
     def shoot(self, x, y):
         direction = self.direction(x, y)
-        if self.state != 'aim' or direction is None:
+        if self.state != "aim" or direction is None:
             return False
         self.velocity = (direction[0] * SPEED, direction[1] * SPEED)
         self.pending = self.count
         self.timer = 0
         self.landing = None
-        self.state = 'flight'
+        self.state = "flight"
         return True
 
     def finish_round(self):
@@ -84,22 +87,22 @@ class Game:
             item.y += CELL
         self.pickups = [p for p in self.pickups if p.y + CELL / 2 < FLOOR]
         if any(b.y + CELL >= FLOOR for b in self.blocks):
-            self.state = 'over'
+            self.state = "over"
             return
         self.round += 1
         self.add_row()
-        self.state = 'aim'
+        self.state = "aim"
 
     def recall(self):
-        if self.state == 'flight':
+        if self.state == "flight":
             self.finish_round()
 
     def update(self, dt):
-        if self.state != 'flight':
+        if self.state != "flight":
             return
         # Small fixed upper bound prevents tunnelling even during fast-forward.
         remaining = max(0, dt)
-        while remaining > 1e-9 and self.state == 'flight':
+        while remaining > 1e-9 and self.state == "flight":
             step = min(remaining, 1 / 240)
             remaining -= step
             self.timer -= step
@@ -145,8 +148,12 @@ class Game:
         if distance >= RADIUS:
             return False
         if distance == 0:
-            sides = [(ball.x-left, -1, 0), (right-ball.x, 1, 0),
-                     (ball.y-top, 0, -1), (bottom-ball.y, 0, 1)]
+            sides = [
+                (ball.x - left, -1, 0),
+                (right - ball.x, 1, 0),
+                (ball.y - top, 0, -1),
+                (bottom - ball.y, 0, 1),
+            ]
             depth, nx, ny = min(sides)
             penetration = RADIUS + depth
         else:

@@ -1,6 +1,7 @@
 import math
 import unittest
-from engine import Game, Ball, Block, Pickup, FLOOR, RADIUS, SPEED
+
+from engine import FLOOR, Ball, Block, Game, Pickup
 
 
 class PhysicsTests(unittest.TestCase):
@@ -24,11 +25,11 @@ class PhysicsTests(unittest.TestCase):
         g.shoot(360, 60)
         for _ in range(2000):
             g.update(1 / 120)
-            if g.state != 'flight':
+            if g.state != "flight":
                 break
         self.assertEqual(g.hits, 1)
         self.assertEqual(g.round, 2)
-        self.assertEqual(g.state, 'aim')
+        self.assertEqual(g.state, "aim")
         self.assertAlmostEqual(g.origin, 360)
 
     def test_pickup_counts_once_for_entire_volley(self):
@@ -39,7 +40,7 @@ class PhysicsTests(unittest.TestCase):
         g.shoot(360, 60)
         for _ in range(2000):
             g.update(1 / 120)
-            if g.state != 'flight':
+            if g.state != "flight":
                 break
         self.assertEqual(g.count, 4)
         self.assertEqual(g.round, 2)
@@ -50,7 +51,7 @@ class PhysicsTests(unittest.TestCase):
         g = Game(4)
         g.blocks = [Block(0, FLOOR - 160, 10)]
         g.finish_round()
-        self.assertEqual(g.state, 'over')
+        self.assertEqual(g.state, "over")
 
     def test_fast_forward_still_hits_block(self):
         g = Game(5)
@@ -71,5 +72,5 @@ class PhysicsTests(unittest.TestCase):
             self.assertFalse(any(b.x < g.pickups[0].x < b.x + 80 for b in g.blocks))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

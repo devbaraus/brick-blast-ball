@@ -7,20 +7,14 @@ fim de jogo e recorde persistente.
 
 ## Executar
 
-Requer Python 3.10 ou superior. No terminal, dentro desta pasta:
+Requer Python 3.14 ou superior e [uv](https://docs.astral.sh/uv/). No terminal, dentro desta pasta:
 
 ```sh
-python -m venv .venv
+uv sync
 ```
 
-Ative o ambiente:
-
-- Windows: `.venv\Scripts\activate`
-- Linux/macOS: `source .venv/bin/activate`
-
 ```sh
-python -m pip install -r requirements.txt
-python main.py
+uv run python main.py
 ```
 
 Mantenha as imagens e os arquivos `.ogg` junto dos arquivos Python.
@@ -55,13 +49,13 @@ na pasta de dados do usuário (`APPDATA` no Windows, `XDG_DATA_HOME` ou
 - `tests/test_engine.py`: testes de colisão, rodadas, coleta e fim de jogo.
 
 ```sh
-python -m unittest discover -s tests -v
+uv run python -m unittest discover -s tests -v
 ```
 
 Verificação gráfica sem abrir uma janela (Linux/macOS):
 
 ```sh
-SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python main.py --mute --frames 5 --screenshot /tmp/brick-blocks.png
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy uv run python main.py --mute --frames 5 --screenshot /tmp/brick-blocks.png
 ```
 
 Esta é uma reimplementação baseada na captura de tela, nos recursos fornecidos e
@@ -81,6 +75,7 @@ Este repositório contém o projeto de uma réplica do jogo **Brick Blast Ball**
 ## 📌 Contexto Acadêmico
 
 Como sugerido no [Projeto Pedagógico do Curso (PPC) de Ciência da Computação do IFG](https://www.ifg.edu.br/attachments/article/1042/PPC_CienciaComputacao.pdf), a ferramenta **AppGameKit** é adotada logo no primeiro período na disciplina de **Laboratório de Programação**. O objetivo dessa abordagem lúdica é estimular e desenvolver:
+
 - **Lógica de programação** de forma visual e interativa.
 - **Competências matemáticas e geométricas** (vetores, colisões, reflexão de ângulos).
 - **Resolução de problemas complexos** por meio da estruturação e arquitetura de um jogo completo desde o início da graduação.
@@ -92,6 +87,7 @@ Como sugerido no [Projeto Pedagógico do Curso (PPC) de Ciência da Computação
 O jogo é um clássico de estilo *Brick Breaker* / *BBTAN*, onde o jogador deve mirar e lançar esferas para quebrar blocos numerados. Cada bloco possui um número que representa a quantidade de impactos necessários para destruí-lo. À medida que as rodadas avançam, novos blocos surgem com valores maiores, e o jogador pode coletar itens para aumentar o número de esferas disparadas por rodada.
 
 ### Funcionalidades
+
 - **Sistema de Mira e Lançamento:** Lançamento de esferas com física de reflexão nas paredes e blocos.
 - **Destruição Progressiva de Blocos:** Blocos numerados que exigem múltiplos impactos para serem quebrados.
 - **Trilha Sonora Dinâmica:** Efeitos sonoros e músicas ambientais para imersão no jogo.
@@ -111,6 +107,7 @@ O jogo é um clássico de estilo *Brick Breaker* / *BBTAN*, onde o jogador deve 
 ## 📂 Estrutura do Projeto
 
 O repositório está estruturado com os seguintes componentes principais:
+
 - [Brick Blocks.exe](file:///zoomer/brick-blast-ball/Brick%20Blocks.exe): O executável compilado do jogo, pronto para rodar.
 - Imagens de fundo (`back0.jpg` a `back9.png`): Planos de fundo utilizados nas fases do jogo.
 - Sprites do jogo (`ball.png`, `gBall.png`, `square.png`): Texturas para as esferas normais/especiais e os blocos.
@@ -130,6 +127,7 @@ Confira abaixo uma captura de tela do jogo em execução:
 ## 🚀 Como Executar
 
 Para rodar o jogo localmente no Windows:
+
 1. Clone este repositório ou baixe os arquivos diretamente.
 2. Execute o arquivo [Brick Blocks.exe](file:///zoomer/brick-blast-ball/Brick%20Blocks.exe).
 3. Use o mouse para mirar e clique para lançar as esferas.

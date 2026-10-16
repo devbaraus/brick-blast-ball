@@ -1,0 +1,25 @@
+{
+    "editor.wordWrap": "on",
+    "files.eol": "\n",
+    "editor.formatOnSave": true,
+    "ruff.enable": true,
+    "files.autoSave": "onFocusChange",
+    "explorer.compactFolders": false,
+    "python.useEnvironmentsExtension": true,
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python-envs.defaultPackageManager": "ms-python.python:venv",
+    "python.analysis.indexing": true,
+    "python.analysis.autoImportCompletions": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "text": "Use conventional commit message format in brazilian portuguese, with the following types: feat, fix, docs, style, refactor, perf, test, chore. Include a brief description of the change and the issue number if applicable."
+        }
+    ],
+}
